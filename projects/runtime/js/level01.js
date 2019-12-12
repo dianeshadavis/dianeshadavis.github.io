@@ -16,18 +16,29 @@ var level01 = function (window) {
             number: 1, 
             speed: -3,
             gameItems: [
-                {type: 'sawblade',x:400,y:groundY},
-                {type: 'sawblade',x:600,y:groundY},
-                {type: 'sawblade',x:900,y:groundY}
-            ]
+                {type: 'sawblade',x:500,y:groundY - 100},
+                {type: 'sawblade',x:1100,y:groundY - 120},
+                {type: 'sawblade',x:1900,y:groundY - 110},
+              
+                
+           ]
         };
         window.levelData = levelData;
         // set this to true or false depending on if you want to see hitzones
         game.setDebugMode(true);
 
         // BEGIN EDITING YOUR CODE HERE
-
-
+        var hitZoneSize = 30;
+        var damageFromObstacle = 10;
+        var myObstacle = game.createObstacle(hitZoneSize,damageFromObstacle);
+        myObstacle.x = 500;
+        myObstacle.y = 300;
+        game.addGameItem(myObstacle);    
+        var obstacleImage = draw.bitmap('img/sawblade.png');
+        myObstacle.addChild(obstacleImage);
+        obstacleImage.x = -25;
+        obstacleImage.y = -25;
+  
     }
 };
 
